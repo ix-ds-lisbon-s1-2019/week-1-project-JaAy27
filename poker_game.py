@@ -30,61 +30,110 @@ Finally, we will create a repository on github called poker_game, upload the pok
 """
 #%%
 
+
+
 import random
 
 class game:
     #where 11: J, 12: Q, 13: K, 14: A
-    #rank = (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
+   
+    
     
     def __init__(self, number_of_players):
-        self.point = points.point  
-        
-    def __eq__ (self, other):
-        return (self.point == other.point)
-
-    def __lt__ (self, other):
-        return (self.point < other.point)
-
-    def __gt__ (self, other):
-        return (self.point > other.point)
-    
-    
-    def deal(self):
-       
-        #player1 = random.sample([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 5)
-        #give the rest to the other players
-        
-           for i in range (hands):
-               hand = []
-           for j in range (cards):
-               #hand.append (self.deck.deal())
-               #self.hands.append (hand)
-    
+        self.number_of_players = number_of_players
         
         
-    def points(self, hand):
-        sortedHand=sorted(hand,reverse=True)
-        point = sortedHand[0]
-        print(point)
-    
-    
     def name(self):
-        name = ''
-        players = []
-        input(name)
+#        name = ''
+        self.players = []
         
-        players.append(name)
+        for each in range(self.number_of_players):
+            player_name = input()
+            self.players.append(player_name)
         
-        return players
-
+        print(self.players)
+    
+    
+    def player_hands(self):
+       self.hands = []
+       for each in range(self.number_of_players):
+            hand = random.sample([2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']*4, 5)
+            self.hands.append(hand)
+            
+       dict_players = { i : self.hands[i] for i in range(0, len(self.hands) ) }
+       print(dict_players)
+       
+        
+    
+        
+    def winner(self):
+        
+        x = self.hands
+        max_list=[]
+        print(x)
+        #Converting the symbols into integers to count points
+        for lists in x:
+            for card in lists:
+                if card == 'J':
+                    lists[lists.index(card)]=11
+                elif card == 'Q':
+                    lists[lists.index(card)]=12
+                elif card == 'K':
+                    lists[lists.index(card)]=13
+                elif card == 'A':
+                    lists[lists.index(card)]=14
+                else: pass
+            
+        print(x)
+        #Maximum of each player    
+        for i in range(len(x)):
+            max_list.append(max(x[i]))
+    
+        #Highest max:
+        m=max(max_list)
+        
+        #Winner:
+        #This game assumes that the player with the highest card wins.
+        winners = []
+            
+        for i in range(len(max_list)):
+            if max_list[i] == m:
+                ind_max = i
+                winners.append(ind_max)
+        print(winners) 
+        
+        #Winners' names:\
+        for winner in winners:
+            print("Congratulations to {}!".format(self.players[winner]))
+    
+    """         
+    #Attempt at writing a code to have only one winner in case more than one person has the same max:
+        
+        while len(winners)>1:
+            winners.clear()
+            max_list.clear()
+            
+        print(winners)    
+            for each in winners:
+               del x[each]
+            print(x)
+               
+            for i in range(len(x)):
+                max_list.append(max(x[i]))
+            
+            for i in range(len(max_list)):
+                if max_list[i] == m:
+                    ind_max = i
+                    winners.append(ind_max)
+        print(max_list)
+        
+       
+        print("Congratulations to {}".format(self.players[winners[0]]))
+            
+       
+    
+    """  
 
     
-    def winner(self, points, other):
-        winner = ''
-        for player in players:
-            if player.point > other.point:
-                winner = player
-        print(winner)
         
-
-#%%
+       
