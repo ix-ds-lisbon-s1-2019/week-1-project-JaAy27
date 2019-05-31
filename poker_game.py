@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed May 29 17:57:47 2019
 
-@author: brandon
-"""
 #%%
 
 """
@@ -93,7 +87,7 @@ class game:
         m=max(max_list)
         
         #Winner:
-        #This game assumes that the player with the highest card wins.
+        #This game assumes that any player with the highest card wins.
         winners = []
             
         for i in range(len(max_list)):
