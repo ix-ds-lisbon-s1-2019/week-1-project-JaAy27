@@ -6,3 +6,17 @@ The deadline is **tomorrow (Friday) the 31st of May at 8pm**.
 
 My blog: https://jaay27.github.io
 
+------------------------------------------------------------------------------------------------
+# Feedback: 
+------------------------------------------------------------------------------------------------
+
+| Section | Mark | 
+|---|---| 
+| Blog | 75% | 
+| Poker Game | 70% |
+||| 
+| Total/100% | 73% | 
+
+Blog is live and has a great picture of Lisbon, but it is missing an explanation of how the poker_game.py file works.
+
+The poker_game.py file also doesn't execute when called in the terminal - when looking at the code, it does however look like a lot of effort and thinking went into it's production.
